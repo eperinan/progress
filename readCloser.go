@@ -23,7 +23,7 @@ func NewReadCloser(r io.ReadCloser) *ReadCloser {
 }
 
 func (r *ReadCloser) Close() error {
-	return r.Close()
+	return r.r.Close()
 }
 
 func (r *ReadCloser) Read(p []byte) (n int, err error) {

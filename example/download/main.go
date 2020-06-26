@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/machinebox/progress"
+	"github.com/eperinan/progress"
 	"github.com/pkg/errors"
 )
 
@@ -40,7 +40,7 @@ func run(args ...string) error {
 		return errors.Wrapf(err, "bad Content-Length %q", contentLengthHeader)
 	}
 	ctx := context.Background()
-	r := progress.NewReader(resp.Body)
+	r := progress.NewReadCloser(resp.Body)
 	go func() {
 		progressChan := progress.NewTicker(ctx, r, size, 1*time.Second)
 		for p := range progressChan {
