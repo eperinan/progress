@@ -1,6 +1,6 @@
-# `progress` [![GoDoc](https://godoc.org/github.com/machinebox/progress?status.png)](http://godoc.org/github.com/machinebox/progress) [![Build Status](https://travis-ci.org/machinebox/progress.svg?branch=master)](https://travis-ci.org/machinebox/progress) [![Go Report Card](https://goreportcard.com/badge/github.com/machinebox/progress)](https://goreportcard.com/report/github.com/machinebox/progress)
+# `progress` [![GoDoc](https://godoc.org/github.com/eperinan/progress?status.png)](http://godoc.org/github.com/eperinan/progress) [![Build Status](https://travis-ci.org/eperinan/progress.svg?branch=master)](https://travis-ci.org/eperinan/progress) [![Go Report Card](https://goreportcard.com/badge/github.com/eperinan/progress)](https://goreportcard.com/report/github.com/eperinan/progress)
 
-`io.Reader` and `io.Writer` with progress and remaining time estimation.
+`io.Reader`, `io.ReadCloser` and `io.Writer` with progress and remaining time estimation.
 
 ## Usage
 
@@ -28,7 +28,7 @@ if _, err := io.Copy(dest, r); err != nil {
 }
 ```
 
-1. Wrap an `io.Reader` or `io.Writer` with `NewReader` and `NewWriter` respectively
+1. Wrap an `io.Reader` or `io.ReadCloser` or `io.Writer` with `NewReader`, `NewReadCloser` and `NewWriter` respectively
 1. Capture the total number of expected bytes
 1. Use `progress.NewTicker` to get a channel on which progress updates will be sent
 1. Start a Goroutine to periodically check the progress, and do something with it - like log it
